@@ -20,6 +20,10 @@
 		36BA296B1676AB0E0094D7DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294C1676AB0E0094D7DF /* Foundation.framework */; };
 		36BA29731676AB0E0094D7DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36BA29711676AB0E0094D7DF /* InfoPlist.strings */; };
 		36BA29761676AB0E0094D7DF /* DailycredExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA29751676AB0E0094D7DF /* DailycredExampleTests.m */; };
+		36BA29811676ACC20094D7DF /* DCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA29801676ACC20094D7DF /* DCClient.m */; };
+		36BA29841676BE640094D7DF /* DCURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA29831676BE640094D7DF /* DCURL.m */; };
+		36BA29871676BFB60094D7DF /* DCURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA29861676BFB60094D7DF /* DCURLParser.m */; };
+		36BA299B1676CC6E0094D7DF /* DCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 36BA299A1676CC6E0094D7DF /* DCUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,21 +41,29 @@
 		36BA294A1676AB0E0094D7DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		36BA294C1676AB0E0094D7DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		36BA294E1676AB0E0094D7DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		36BA29521676AB0E0094D7DF /* DailycredExample-Info.plist */ = {isa = PBXFileReference; path = "DailycredExample-Info.plist"; sourceTree = "<group>"; };
+		36BA29521676AB0E0094D7DF /* DailycredExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DailycredExample-Info.plist"; sourceTree = "<group>"; };
 		36BA29541676AB0E0094D7DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		36BA29561676AB0E0094D7DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		36BA29581676AB0E0094D7DF /* DailycredExample-Prefix.pch */ = {isa = PBXFileReference; path = "DailycredExample-Prefix.pch"; sourceTree = "<group>"; };
-		36BA29591676AB0E0094D7DF /* DCAppDelegate.h */ = {isa = PBXFileReference; path = DCAppDelegate.h; sourceTree = "<group>"; };
+		36BA29581676AB0E0094D7DF /* DailycredExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DailycredExample-Prefix.pch"; sourceTree = "<group>"; };
+		36BA29591676AB0E0094D7DF /* DCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAppDelegate.h; sourceTree = "<group>"; };
 		36BA295A1676AB0E0094D7DF /* DCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAppDelegate.m; sourceTree = "<group>"; };
-		36BA295C1676AB0E0094D7DF /* DCViewController.h */ = {isa = PBXFileReference; path = DCViewController.h; sourceTree = "<group>"; };
+		36BA295C1676AB0E0094D7DF /* DCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCViewController.h; sourceTree = "<group>"; };
 		36BA295D1676AB0E0094D7DF /* DCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCViewController.m; sourceTree = "<group>"; };
 		36BA29601676AB0E0094D7DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DCViewController.xib; sourceTree = "<group>"; };
 		36BA29671676AB0E0094D7DF /* DailycredExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailycredExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BA29681676AB0E0094D7DF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		36BA29701676AB0E0094D7DF /* DailycredExampleTests-Info.plist */ = {isa = PBXFileReference; path = "DailycredExampleTests-Info.plist"; sourceTree = "<group>"; };
+		36BA29701676AB0E0094D7DF /* DailycredExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DailycredExampleTests-Info.plist"; sourceTree = "<group>"; };
 		36BA29721676AB0E0094D7DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		36BA29741676AB0E0094D7DF /* DailycredExampleTests.h */ = {isa = PBXFileReference; path = DailycredExampleTests.h; sourceTree = "<group>"; };
+		36BA29741676AB0E0094D7DF /* DailycredExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailycredExampleTests.h; sourceTree = "<group>"; };
 		36BA29751676AB0E0094D7DF /* DailycredExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailycredExampleTests.m; sourceTree = "<group>"; };
+		36BA297F1676ACC20094D7DF /* DCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCClient.h; sourceTree = "<group>"; };
+		36BA29801676ACC20094D7DF /* DCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCClient.m; sourceTree = "<group>"; };
+		36BA29821676BE640094D7DF /* DCURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCURL.h; sourceTree = "<group>"; };
+		36BA29831676BE640094D7DF /* DCURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCURL.m; sourceTree = "<group>"; };
+		36BA29851676BFB60094D7DF /* DCURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCURLParser.h; sourceTree = "<group>"; };
+		36BA29861676BFB60094D7DF /* DCURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCURLParser.m; sourceTree = "<group>"; };
+		36BA29991676CC6E0094D7DF /* DCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCUser.h; sourceTree = "<group>"; };
+		36BA299A1676CC6E0094D7DF /* DCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,14 @@
 				36BA295D1676AB0E0094D7DF /* DCViewController.m */,
 				36BA295F1676AB0E0094D7DF /* DCViewController.xib */,
 				36BA29511676AB0E0094D7DF /* Supporting Files */,
+				36BA297F1676ACC20094D7DF /* DCClient.h */,
+				36BA29801676ACC20094D7DF /* DCClient.m */,
+				36BA29821676BE640094D7DF /* DCURL.h */,
+				36BA29831676BE640094D7DF /* DCURL.m */,
+				36BA29851676BFB60094D7DF /* DCURLParser.h */,
+				36BA29861676BFB60094D7DF /* DCURLParser.m */,
+				36BA29991676CC6E0094D7DF /* DCUser.h */,
+				36BA299A1676CC6E0094D7DF /* DCUser.m */,
 			);
 			path = DailycredExample;
 			sourceTree = "<group>";
@@ -261,6 +281,10 @@
 				36BA29571676AB0E0094D7DF /* main.m in Sources */,
 				36BA295B1676AB0E0094D7DF /* DCAppDelegate.m in Sources */,
 				36BA295E1676AB0E0094D7DF /* DCViewController.m in Sources */,
+				36BA29811676ACC20094D7DF /* DCClient.m in Sources */,
+				36BA29841676BE640094D7DF /* DCURL.m in Sources */,
+				36BA29871676BFB60094D7DF /* DCURLParser.m in Sources */,
+				36BA299B1676CC6E0094D7DF /* DCUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
