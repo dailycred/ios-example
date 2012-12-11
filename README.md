@@ -1,3 +1,3 @@
 #Dailycred
 
-Objective-dc is the easiest and most powerful way to get user accounts on your iPhone app. This library is currently in beta.
+This is an example app for using Dailycred in an iPhone app. We are currently working on a library to make this even easier.
