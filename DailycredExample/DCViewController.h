@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "DCClient.h"
 
-@interface DCViewController : UIViewController
+@interface DCViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
+    NSString *selectedProvider;
+}
 @property (strong, nonatomic) IBOutlet UIButton *signUpButton;
-@property (strong, nonatomic) IBOutlet UILabel *displayText;
-@property (strong, nonatomic) IBOutlet UIImageView *avatar;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 
 - (IBAction)signUpButtonTouched:(id)sender;
--(void)updateForUser;
 
 @end

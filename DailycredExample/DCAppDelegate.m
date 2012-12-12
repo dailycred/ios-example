@@ -9,22 +9,29 @@
 #import "DCAppDelegate.h"
 
 #import "DCViewController.h"
+#import "DCUserViewController.h"
 #import "DCClient.h"
 
 @implementation DCAppDelegate
 
 @synthesize window = _window;
 @synthesize viewController = _viewController;
+@synthesize userViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    DCClient *dailycred = [DCClient initWithClientId:@"04e0586a-7e1e-4f10-8207-304bc048050d" andClientSecret:@"9c558f4d-23e5-47cf-9ed4-23f45a165262-1cf47ecf-c2ff-492e-919f-9986c39d66b4" withRedirectUri:@"dailycredapp://localhost"];
+    dailycred.baseUri = @"http://ec2-50-19-198-86.compute-1.amazonaws.com:9000";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[DCViewController alloc] initWithNibName:@"DCViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.userViewController = [[DCUserViewController alloc] initWithNibName:@"DCUserViewController" bundle:nil];
+    if ([DCClient getCurrentUser] != nil){
+        self.window.rootViewController = self.userViewController;
+    } else {
+        self.window.rootViewController = self.viewController;
+    }
     [self.window makeKeyAndVisible];
-    DCClient *dailycred = [DCClient initWithClientId:@"04e0586a-7e1e-4f10-8207-304bc048050d" andClientSecret:@"9c558f4d-23e5-47cf-9ed4-23f45a165262-1cf47ecf-c2ff-492e-919f-9986c39d66b4"];
-    dailycred.redirectUri = @"dailycredapp://localhost";
     return YES;
 }
 
@@ -57,10 +64,14 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {   
-    [[DCClient getClient] authenticateWithCallbackUrl:[url absoluteString]];
-    self.window.rootViewController = self.viewController;
-    [self.viewController updateForUser];
-    [self.window makeKeyAndVisible];
+    [[DCClient sharedClient] authenticateWithCallbackUrl:[url absoluteString]];
+    if ([DCClient getCurrentUser] == nil){
+        self.window.rootViewController = self.viewController;
+        [self.window makeKeyAndVisible];
+    } else {
+        self.window.rootViewController = self.userViewController;
+        [self.window makeKeyAndVisible];
+    }
     NSLog(@"current user is: %@",[DCClient getCurrentUser]);
     return YES;
 }

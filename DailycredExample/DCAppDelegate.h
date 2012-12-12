@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class DCViewController;
+@class DCUserViewController;
 
 @interface DCAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) DCViewController *viewController;
+@property (strong, nonatomic) DCUserViewController *userViewController;
 
 @end

@@ -14,12 +14,11 @@
 
 @implementation DCViewController
 @synthesize signUpButton;
-@synthesize displayText;
-@synthesize avatar;
+@synthesize pickerView;
 
 - (void)viewDidLoad
 {
-    [self updateForUser];
+    [signUpButton setTitle:[NSString stringWithFormat:@"Sign Up with %@", [self getSelectedProvider]] forState:UIControlStateNormal];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -27,54 +26,43 @@
 - (void)viewDidUnload
 {
     [self setSignUpButton:nil];
-    [self setDisplayText:nil];
-    [self setAvatar:nil];
+    [self setPickerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
+- (IBAction)signUpButtonTouched:(id)sender {
+    [[DCClient sharedClient] authorizeWithIdentityProvider:[self getSelectedProvider]];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    return [[DCClient sharedClient].identityProviders count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [[[DCClient sharedClient].identityProviders objectAtIndex:row] capitalizedString];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    selectedProvider = [[[DCClient sharedClient].identityProviders objectAtIndex:row] capitalizedString];
+    [signUpButton setTitle:[NSString stringWithFormat:@"Sign Up with %@", [self getSelectedProvider]] forState:UIControlStateNormal];
+}
+
+-(NSString *)getSelectedProvider{
+    if (selectedProvider == nil){
+        return [[[DCClient sharedClient].identityProviders objectAtIndex:0] capitalizedString];
+    } else {
+        return selectedProvider;
+    }
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)signUpButtonTouched:(id)sender {
-    NSLog(@"button touched!");
-    if ([signUpButton titleLabel].text == @"logout"){
-        [DCClient logout];
-        [self updateForUser];
-    } else {
-        [[DCClient getClient] authorize];
-    }
-    
-}
-
--(void)updateForUser {
-    DCUser *user = [DCClient getCurrentUser];
-    if ([DCClient getCurrentUser] != nil){
-        
-        displayText.text = [NSString stringWithFormat:@"Hello %@",user.display];
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: user.picture]];
-        avatar.image = [UIImage imageWithData: imageData];
-        [avatar setFrame:CGRectMake(0, 0, 50, 50)];
-        avatar.hidden = NO;
-        NSString *title = @"logout";
-        [signUpButton setTitle: title forState: UIControlStateNormal];
-        [signUpButton setTitle: title forState: UIControlStateApplication];
-        [signUpButton setTitle: title forState: UIControlStateHighlighted];
-        [signUpButton setTitle: title forState: UIControlStateReserved];
-        [signUpButton setTitle: title forState: UIControlStateSelected];
-        [signUpButton setTitle: title forState: UIControlStateDisabled];
-    } else {
-        avatar.hidden = YES;
-        NSString *title = @"Sign Up";
-        [signUpButton setTitle: title forState: UIControlStateNormal];
-        [signUpButton setTitle: title forState: UIControlStateApplication];
-        [signUpButton setTitle: title forState: UIControlStateHighlighted];
-        [signUpButton setTitle: title forState: UIControlStateReserved];
-        [signUpButton setTitle: title forState: UIControlStateSelected];
-        [signUpButton setTitle: title forState: UIControlStateDisabled];
-        displayText.text = @"Hello Person";
-    }
-}
 @end

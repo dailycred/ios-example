@@ -12,27 +12,47 @@
 
 @implementation DCClient
 
+NSString* const kAuthEndpoint = @"/oauth/authorize";
+NSString* const kAccessTokenEndpoint = @"/oauth/access_token";
+NSString* const kConnectEndpoint = @"/connect";
+NSString* const kMeJsonEndpoint = @"/graph/me.json";
+NSString* const kGatewayEndpoint = @"/oauth/gateway";
+NSString* const kCurrentUserKey = @"dc_current_user";
+
 static DCClient *instance = nil;
 static DCUser *currentUser = nil;
 
-@synthesize clientId, clientSecret, authEndpoint, accessTokenEndpoint, redirectUri, meJsonEndpoint;
+@synthesize clientId, clientSecret, redirectUri, baseUri, identityProviders;
 
-+(DCClient*) initWithClientId:(NSString*) aClientId andClientSecret:(NSString*)aClientSecret{
-    DCClient *client = [DCClient getClient];
++(DCClient*) initWithClientId:(NSString*) aClientId andClientSecret:(NSString*)aClientSecret withRedirectUri:(NSString *)redirectUri{
+    DCClient *client = [DCClient sharedClient];
     client.clientId = aClientId;
     client.clientSecret = aClientSecret;
-    client.authEndpoint = @"https://www.dailycred.com/oauth/authorize";
-    client.accessTokenEndpoint = @"https://www.dailycred.com/oauth/access_token";
-    client.meJsonEndpoint = @"https://www.dailycred.com/graph/me.json";
+    client.redirectUri = redirectUri;
+    client.baseUri = @"https://www.dailycred.com";
+    client.identityProviders = [[NSArray alloc] initWithObjects:@"github",@"facebook",@"google",@"twitter",@"email", nil];
     return client;
 }
 
 -(void) authorize{
-    DCURL *url = [DCURL URLWithString: authEndpoint];
+    DCURL *url = [self getAuthURLFromEndpoint:kGatewayEndpoint];
     url = [url URLbyAppendingParameterWithKey:@"client_id" andValue:clientId];
     if (redirectUri != nil){
         url = [url URLbyAppendingParameterWithKey:@"redirect_uri" andValue:redirectUri];
     }
+    [[UIApplication sharedApplication] openURL: url];
+}
+
+-(void) authorizeWithIdentityProvider:(NSString *)identityProvider{
+    DCURL *url = [self getAuthURLFromEndpoint:kConnectEndpoint];
+    url = [url URLbyAppendingParameterWithKey:@"identity_provider" andValue:[identityProvider lowercaseString]];
+    [[UIApplication sharedApplication] openURL: url];
+}
+
+-(void)connectUser:(DCUser *)user withIdentityProvider:(NSString *)identityProvider{
+    DCURL *url = [self getAuthURLFromEndpoint:kConnectEndpoint];
+    url = [url URLbyAppendingParameterWithKey:@"identity_provider" andValue:[identityProvider lowercaseString]];
+    url = [url URLbyAppendingParameterWithKey:@"access_token" andValue:[user getAccessTokenForProvider:@"dailycred"]];
     [[UIApplication sharedApplication] openURL: url];
 }
 
@@ -44,7 +64,7 @@ static DCUser *currentUser = nil;
     [DCClient setCurrentUser: [[DCUser alloc] initWithAccessToken:accessToken]];
 }
 
-+(DCClient *)getClient{
++(DCClient *)sharedClient{
     @synchronized(self)    
     {    
         if(instance==nil)    
@@ -57,7 +77,7 @@ static DCUser *currentUser = nil;
 }
 
 -(NSString *)getAccessTokenFromCode:(NSString *)code{
-    DCURL *url = [DCURL URLWithString:[NSString stringWithFormat:accessTokenEndpoint]];
+    DCURL *url = [self getURLFromEndpoint:kAccessTokenEndpoint];
     url = [url URLbyAppendingParameterWithKey:@"code" andValue:code];
     url = [url URLbyAppendingParameterWithKey:@"client_secret" andValue:clientSecret];
     NSDictionary* results = [url getJsonResponse];
@@ -67,16 +87,33 @@ static DCUser *currentUser = nil;
 }
 
                                     
--(NSDictionary *)getUserFromAccessToken:(NSString *)accessToken{
-    DCURL *url = [DCURL URLWithString:meJsonEndpoint];
+-(NSDictionary *)getUserJsonFromAccessToken:(NSString *)accessToken{
+    DCURL *url = [self getURLFromEndpoint:kMeJsonEndpoint];
     url = [url URLbyAppendingParameterWithKey:@"access_token" andValue:accessToken];
     return [url getJsonResponse];
 }
 
+-(DCURL *)getAuthURLFromEndpoint:(NSString *)endpoint{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",baseUri,endpoint];
+    DCURL *url = [DCURL URLWithString: urlString];
+    url = [url URLbyAppendingParameterWithKey:@"client_id" andValue:clientId];
+    if (redirectUri != nil){
+        url = [url URLbyAppendingParameterWithKey:@"redirect_uri" andValue:redirectUri];
+    }
+    return url;
+}
+
+-(DCURL *)getURLFromEndpoint:(NSString *)endpoint{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",baseUri,endpoint];
+    return [DCURL URLWithString: urlString];
+}
+
+
+
 +(DCUser *)getCurrentUser{
     if (currentUser == nil){
         NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-        NSData *userData = [prefs objectForKey:@"dc_current_user"];
+        NSData *userData = [prefs objectForKey:kCurrentUserKey];
         if (userData != nil){
             currentUser = (DCUser *)[NSKeyedUnarchiver unarchiveObjectWithData:userData];
         }
@@ -87,13 +124,13 @@ static DCUser *currentUser = nil;
 +(void)setCurrentUser:(DCUser *)user{
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
-    [prefs setObject:userData forKey:@"dc_current_user"];
+    [prefs setObject:userData forKey:kCurrentUserKey];
     currentUser = user;
 }
 
 +(void)logout{
      NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [prefs removeObjectForKey:@"dc_current_user"];
+    [prefs removeObjectForKey:kCurrentUserKey];
     currentUser = nil;
 }
 

@@ -14,8 +14,14 @@
 @property (strong) NSString *email;
 @property (strong) NSString *display;
 @property (strong) NSString *picture;
+@property (strong) NSDictionary *identities;
+@property (strong) NSDictionary *accessTokens;
+@property (strong) NSDictionary *json;
 
 -(DCUser *)initWithAccessToken:(NSString *)accessToken;
+-(BOOL)hasIdentity:(NSString *)provider;
+-(NSDictionary *)getIdentityForProvider:(NSString *)provider;
+-(NSString *)getAccessTokenForProvider:(NSString *)provider;
 
 -(void)encodeWithCoder:(NSCoder *)encoder;
 - (id)initWithCoder:(NSCoder *)decoder;

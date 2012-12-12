@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36AC64351677EBD60033BDC6 /* DCUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AC64341677EBD60033BDC6 /* DCUserViewController.xib */; };
+		36AC64381677EBF50033BDC6 /* DCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AC64371677EBF50033BDC6 /* DCUserViewController.m */; };
+		36AC644D1677FF9C0033BDC6 /* DCJsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AC644B1677FF9B0033BDC6 /* DCJsonViewController.m */; };
+		36AC644E1677FF9C0033BDC6 /* DCJsonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AC644C1677FF9C0033BDC6 /* DCJsonViewController.xib */; };
 		36BA294B1676AB0E0094D7DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294A1676AB0E0094D7DF /* UIKit.framework */; };
 		36BA294D1676AB0E0094D7DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294C1676AB0E0094D7DF /* Foundation.framework */; };
 		36BA294F1676AB0E0094D7DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294E1676AB0E0094D7DF /* CoreGraphics.framework */; };
@@ -37,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36AC64341677EBD60033BDC6 /* DCUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DCUserViewController.xib; sourceTree = "<group>"; };
+		36AC64361677EBF50033BDC6 /* DCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCUserViewController.h; sourceTree = "<group>"; };
+		36AC64371677EBF50033BDC6 /* DCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCUserViewController.m; sourceTree = "<group>"; };
+		36AC644A1677FF9B0033BDC6 /* DCJsonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCJsonViewController.h; sourceTree = "<group>"; };
+		36AC644B1677FF9B0033BDC6 /* DCJsonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCJsonViewController.m; sourceTree = "<group>"; };
+		36AC644C1677FF9C0033BDC6 /* DCJsonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DCJsonViewController.xib; sourceTree = "<group>"; };
 		36BA29461676AB0D0094D7DF /* DailycredExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailycredExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BA294A1676AB0E0094D7DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		36BA294C1676AB0E0094D7DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +147,12 @@
 				36BA29861676BFB60094D7DF /* DCURLParser.m */,
 				36BA29991676CC6E0094D7DF /* DCUser.h */,
 				36BA299A1676CC6E0094D7DF /* DCUser.m */,
+				36AC64341677EBD60033BDC6 /* DCUserViewController.xib */,
+				36AC64361677EBF50033BDC6 /* DCUserViewController.h */,
+				36AC64371677EBF50033BDC6 /* DCUserViewController.m */,
+				36AC644A1677FF9B0033BDC6 /* DCJsonViewController.h */,
+				36AC644B1677FF9B0033BDC6 /* DCJsonViewController.m */,
+				36AC644C1677FF9C0033BDC6 /* DCJsonViewController.xib */,
 			);
 			path = DailycredExample;
 			sourceTree = "<group>";
@@ -244,6 +260,8 @@
 			files = (
 				36BA29551676AB0E0094D7DF /* InfoPlist.strings in Resources */,
 				36BA29611676AB0E0094D7DF /* DCViewController.xib in Resources */,
+				36AC64351677EBD60033BDC6 /* DCUserViewController.xib in Resources */,
+				36AC644E1677FF9C0033BDC6 /* DCJsonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +303,8 @@
 				36BA29841676BE640094D7DF /* DCURL.m in Sources */,
 				36BA29871676BFB60094D7DF /* DCURLParser.m in Sources */,
 				36BA299B1676CC6E0094D7DF /* DCUser.m in Sources */,
+				36AC64381677EBF50033BDC6 /* DCUserViewController.m in Sources */,
+				36AC644D1677FF9C0033BDC6 /* DCJsonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +474,7 @@
 				36BA297B1676AB0E0094D7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36BA297C1676AB0E0094D7DF /* Build configuration list for PBXNativeTarget "DailycredExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +483,7 @@
 				36BA297E1676AB0E0094D7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
