@@ -1,0 +1,3 @@
+[submodule "objective-dc"]
+	path = objective-dc
+	url = git@github.com:dailycred/objective-dc.git

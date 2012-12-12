@@ -19,6 +19,34 @@
                ReferencedContainer = "container:DailycredExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "36BA29661676AB0E0094D7DF"
+               BuildableName = "DailycredExampleTests.octest"
+               BlueprintName = "DailycredExampleTests"
+               ReferencedContainer = "container:DailycredExample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "36AC645916780C450033BDC6"
+               BuildableName = "libobjective-dc.a"
+               BlueprintName = "objective-dc"
+               ReferencedContainer = "container:objective-dc/objective-dc.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

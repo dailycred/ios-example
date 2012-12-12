@@ -7,6 +7,7 @@
 //
 
 #import "DCViewController.h"
+#import "DCClient.h"
 
 @interface DCViewController ()
 

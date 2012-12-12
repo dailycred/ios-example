@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DCClient.h"
 
 @interface DCViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
     NSString *selectedProvider;

@@ -70,6 +70,7 @@
         [self.window makeKeyAndVisible];
     } else {
         self.window.rootViewController = self.userViewController;
+        [self.userViewController updateForUser];
         [self.window makeKeyAndVisible];
     }
     NSLog(@"current user is: %@",[DCClient getCurrentUser]);
