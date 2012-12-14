@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367CA05816791B5000370C54 /* libobjective-dc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36AC652A167821CB0033BDC6 /* libobjective-dc.a */; };
 		36AC64351677EBD60033BDC6 /* DCUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AC64341677EBD60033BDC6 /* DCUserViewController.xib */; };
 		36AC64381677EBF50033BDC6 /* DCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AC64371677EBF50033BDC6 /* DCUserViewController.m */; };
 		36AC644D1677FF9C0033BDC6 /* DCJsonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AC644B1677FF9B0033BDC6 /* DCJsonViewController.m */; };
 		36AC644E1677FF9C0033BDC6 /* DCJsonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36AC644C1677FF9C0033BDC6 /* DCJsonViewController.xib */; };
-		36AC652F1678224B0033BDC6 /* libobjective-dc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 36AC652A167821CB0033BDC6 /* libobjective-dc.a */; };
 		36BA294B1676AB0E0094D7DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294A1676AB0E0094D7DF /* UIKit.framework */; };
 		36BA294D1676AB0E0094D7DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294C1676AB0E0094D7DF /* Foundation.framework */; };
 		36BA294F1676AB0E0094D7DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36BA294E1676AB0E0094D7DF /* CoreGraphics.framework */; };
@@ -28,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		367CA05616791B3000370C54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36AC6521167821CA0033BDC6 /* objective-dc.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 36AC645916780C450033BDC6;
+			remoteInfo = "objective-dc";
+		};
 		36AC6529167821CB0033BDC6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36AC6521167821CA0033BDC6 /* objective-dc.xcodeproj */;
@@ -42,13 +49,6 @@
 			remoteGlobalIDString = 36AC646A16780C450033BDC6;
 			remoteInfo = "objective-dcTests";
 		};
-		36AC652D167822160033BDC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 36AC6521167821CA0033BDC6 /* objective-dc.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 36AC645916780C450033BDC6;
-			remoteInfo = "objective-dc";
-		};
 		36BA296C1676AB0E0094D7DF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36BA293D1676AB0B0094D7DF /* Project object */;
@@ -59,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		367CA05916791EEC00370C54 /* DCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCClient.h; path = "../objective-dc/objective-dc/DCClient.h"; sourceTree = "<group>"; };
+		367CA05A16791EEC00370C54 /* DCURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCURL.h; path = "../objective-dc/objective-dc/DCURL.h"; sourceTree = "<group>"; };
+		367CA05B16791EEC00370C54 /* DCURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCURLParser.h; path = "../objective-dc/objective-dc/DCURLParser.h"; sourceTree = "<group>"; };
+		367CA05C16791EEC00370C54 /* DCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCUser.h; path = "../objective-dc/objective-dc/DCUser.h"; sourceTree = "<group>"; };
 		36AC64341677EBD60033BDC6 /* DCUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DCUserViewController.xib; sourceTree = "<group>"; };
 		36AC64361677EBF50033BDC6 /* DCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCUserViewController.h; sourceTree = "<group>"; };
 		36AC64371677EBF50033BDC6 /* DCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCUserViewController.m; sourceTree = "<group>"; };
@@ -66,10 +70,6 @@
 		36AC644B1677FF9B0033BDC6 /* DCJsonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCJsonViewController.m; sourceTree = "<group>"; };
 		36AC644C1677FF9C0033BDC6 /* DCJsonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DCJsonViewController.xib; sourceTree = "<group>"; };
 		36AC6521167821CA0033BDC6 /* objective-dc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "objective-dc.xcodeproj"; path = "objective-dc/objective-dc.xcodeproj"; sourceTree = "<group>"; };
-		36AC653A167827FA0033BDC6 /* DCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCClient.h; path = "../objective-dc/objective-dc/DCClient.h"; sourceTree = "<group>"; };
-		36AC653B167827FA0033BDC6 /* DCURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCURL.h; path = "../objective-dc/objective-dc/DCURL.h"; sourceTree = "<group>"; };
-		36AC653C167827FA0033BDC6 /* DCURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCURLParser.h; path = "../objective-dc/objective-dc/DCURLParser.h"; sourceTree = "<group>"; };
-		36AC653D167827FA0033BDC6 /* DCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DCUser.h; path = "../objective-dc/objective-dc/DCUser.h"; sourceTree = "<group>"; };
 		36BA29461676AB0D0094D7DF /* DailycredExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailycredExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BA294A1676AB0E0094D7DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		36BA294C1676AB0E0094D7DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36AC652F1678224B0033BDC6 /* libobjective-dc.a in Frameworks */,
+				367CA05816791B5000370C54 /* libobjective-dc.a in Frameworks */,
 				36BA294B1676AB0E0094D7DF /* UIKit.framework in Frameworks */,
 				36BA294D1676AB0E0094D7DF /* Foundation.framework in Frameworks */,
 				36BA294F1676AB0E0094D7DF /* CoreGraphics.framework in Frameworks */,
@@ -128,10 +128,10 @@
 		36AC6539167827E70033BDC6 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				36AC653A167827FA0033BDC6 /* DCClient.h */,
-				36AC653B167827FA0033BDC6 /* DCURL.h */,
-				36AC653C167827FA0033BDC6 /* DCURLParser.h */,
-				36AC653D167827FA0033BDC6 /* DCUser.h */,
+				367CA05916791EEC00370C54 /* DCClient.h */,
+				367CA05A16791EEC00370C54 /* DCURL.h */,
+				367CA05B16791EEC00370C54 /* DCURLParser.h */,
+				367CA05C16791EEC00370C54 /* DCUser.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				36AC652E167822160033BDC6 /* PBXTargetDependency */,
+				367CA05716791B3000370C54 /* PBXTargetDependency */,
 			);
 			name = DailycredExample;
 			productName = DailycredExample;
@@ -369,10 +369,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		36AC652E167822160033BDC6 /* PBXTargetDependency */ = {
+		367CA05716791B3000370C54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "objective-dc";
-			targetProxy = 36AC652D167822160033BDC6 /* PBXContainerItemProxy */;
+			targetProxy = 367CA05616791B3000370C54 /* PBXContainerItemProxy */;
 		};
 		36BA296D1676AB0E0094D7DF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
