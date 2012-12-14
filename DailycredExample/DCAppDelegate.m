@@ -20,8 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    DCClient *dailycred = [DCClient initWithClientId:@"04e0586a-7e1e-4f10-8207-304bc048050d" andClientSecret:@"9c558f4d-23e5-47cf-9ed4-23f45a165262-1cf47ecf-c2ff-492e-919f-9986c39d66b4" withRedirectUri:@"dailycredapp://localhost"];
-    dailycred.baseUri = @"http://ec2-50-19-198-86.compute-1.amazonaws.com:9000";
+    [DCClient initWithClientId:@"04e0586a-7e1e-4f10-8207-304bc048050d" andClientSecret:@"9c558f4d-23e5-47cf-9ed4-23f45a165262-1cf47ecf-c2ff-492e-919f-9986c39d66b4" withRedirectUri:@"dailycredexampleapp://localhost"];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[DCViewController alloc] initWithNibName:@"DCViewController" bundle:nil];

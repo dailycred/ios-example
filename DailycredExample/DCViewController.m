@@ -50,7 +50,7 @@
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     selectedProvider = [[[DCClient sharedClient].identityProviders objectAtIndex:row] capitalizedString];
-    [signUpButton setTitle:[NSString stringWithFormat:@"Sign Up with %@", [self getSelectedProvider]] forState:UIControlStateNormal];
+    [signUpButton setTitle:[NSString stringWithFormat:@"Connect with %@", [self getSelectedProvider]] forState:UIControlStateNormal];
 }
 
 -(NSString *)getSelectedProvider{
