@@ -63,8 +63,10 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {   
+    NSLog(@"callback url is %@", [url absoluteString]);
     [[DCClient sharedClient] authenticateWithCallbackUrl:[url absoluteString]];
     if ([DCClient getCurrentUser] == nil){
+        //there was an error or the user cancelled login
         self.window.rootViewController = self.viewController;
         [self.window makeKeyAndVisible];
     } else {
